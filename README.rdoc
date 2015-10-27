@@ -1,28 +1,22 @@
-== README
+# Questions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- How do you test that Redis is running?
 
-Things you may want to cover:
+    run redis-cli and type ping, if you get pong as a response then redis is running
 
-* Ruby version
+- How do you open the Redis cli?
 
-* System dependencies
+    run redis-cli
 
-* Configuration
+- How are jobs actually stored?
 
-* Database creation
+    JSON
 
-* Database initialization
+- Describe the lifecycle of a job: how it gets created and how it gets completed.
 
-* How to run the test suite
+    gets created by resque.enqueue() then is stored as JSON and is then run in a background process by a worker
 
-* Services (job queues, cache servers, search engines, etc.)
+- you have a friend that’s created a Rails application with 3 background queues
+  that are named “send_email”, “updated_password” and “send_reminder_email”. What might be a problem with that approach?
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    if the send_email and Updated_password queue's are never empty then send_reminder_email will never run
